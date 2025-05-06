@@ -1,18 +1,19 @@
-
-object cuentaCorriente {
-	var property saldo = 0
+class CuentaCorriente{
+	var  saldo = 0
+	method saldo(){
+		return saldo
+	}
 	method depositar(monto) { saldo += monto }
 	method extraer(monto) { saldo -= monto }
 }
 
-object colchon {
-	var property dinero = 0
-	method guardar(monto) { dinero += monto }
-}
+const cuentaCorriente1 = new CuentaCorriente(saldo = 1000) 	
+const cuentaCorriente2 = new CuentaCorriente(saldo = 1000) 	
 
-object pepe {
+
+class Persona{
 	const cajaFuerte = colchon
-	const miCuenta = cuentaCorriente
+	const miCuenta = cuentaCorriente1
 	method cobrar(monto) { 
 		cajaFuerte.guardar(monto)
 	}
@@ -23,20 +24,20 @@ object pepe {
 		return miCuenta.saldo() + cajaFuerte.dinero()
 	}
 }
-//en homenaje a Rebeca Cherep de Guber 
-//https://es.wikipedia.org/wiki/Rebeca_Guber
-object rebeca {
-	const miCuenta = cuentaCorriente
-	method cobrar(monto) { 
-		miCuenta.depositar(monto)
-	}
-	method gastar(monto) { 
-		miCuenta.extraer(monto)
-	}
-	method ahorros() { 
-		return miCuenta.saldo()
-	}
+
+object pepe inherits Persona(miCuenta= cuentaCorriente1 ) {
+  
 }
+
+object rebeca inherits Persona(miCuenta= cuentaCorriente2 ) {
+	
+}
+
+object colchon {
+	var property dinero = 0
+	method guardar(monto) { dinero += monto }
+}
+
 
 
 

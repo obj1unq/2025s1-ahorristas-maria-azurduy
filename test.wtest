@@ -3,7 +3,11 @@ import objetos.*
 
 describe "Test de las personas" {
 
+	var cuentaPepe
+
  	method initialize() {
+		cuentaPepe = new CuentaCorriente()
+		//pepe.miCuenta(cuentaPepe)
  		rebeca.cobrar(1000)
  	}
 
